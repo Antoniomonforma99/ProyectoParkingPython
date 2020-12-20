@@ -57,3 +57,7 @@ class Ticketrepo(object):
     def agregarTicket(self, ticket):
         return self.__listaTickets.append(ticket)
 
+    def eliminarTicket(self, ticket):
+        resultado = self.buscarPorPin(ticket.pin)
+        return self.__listaTickets.pop(resultado)
+

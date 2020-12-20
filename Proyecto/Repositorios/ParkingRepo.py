@@ -1,4 +1,5 @@
 from datetime import datetime
+
 class ParkingRepo(object):
     def __init__(self, parking, vehiculoRepo, ticketRepo, UsuarioAbonadoRepo):
         self.__parking = parking
@@ -43,7 +44,7 @@ class ParkingRepo(object):
         ticket = self.__ticketRepo.buscarPorPin(pin)
         ticket.fechaSalida = datetime.now()
         minutosTotales = (ticket.fechaSalida - ticket.fechaEntrada).minute
-        print("Ha estado en el parking " +minutosTotales +" minutos")
+        print("Ha estado en el parking " +str(minutosTotales) +" minutos")
         if(vehiculo.tipo == "Turismo"):
             ticket.precio = minutosTotales * 0.12
         elif(vehiculo.tipo == "Motocilceta"):
